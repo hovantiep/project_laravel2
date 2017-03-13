@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace project2;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,12 +26,12 @@ class User extends Authenticatable
 
     public function news()
     {
-        return $this->hasMany('App\News', 'user_id', 'id');
+        return $this->hasMany('project2\News', 'user_id', 'id');
     }
 
     public function role()
     {
-        return $this->hasOne('App\Role', 'id', 'role_id');
+        return $this->hasOne('project2\Role', 'id', 'role_id');
     }
 
     public function hasRole($roles)

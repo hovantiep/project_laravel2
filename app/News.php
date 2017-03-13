@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace project2;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,11 +12,11 @@ class News extends Model
 
     public function category()
     {
-        return $this->hasOne('App\Category', 'id', 'category_id');
+        return $this->hasOne('project2\Category', 'id', 'category_id');
     }
 
     public function user()
     {
-        return $this->hasOne('App\User', 'id', 'user_id');
+        return $this->hasOne('project2\User', 'id', 'user_id');
     }
 }

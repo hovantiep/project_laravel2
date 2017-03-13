@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace project2\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests;
-use App\Role;
-use App\User;
+use project2\Category;
+use project2\Http\Requests;
+use project2\Role;
+use project2\User;
 
 class UserController extends Controller
 {

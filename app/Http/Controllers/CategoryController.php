@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace project2\Http\Controllers;
 
-use App\Category;
-use App\Http\Requests;
+use project2\Category;
+use project2\Http\Requests;
 
 class CategoryController extends Controller
 {

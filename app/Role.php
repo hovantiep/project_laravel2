@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace project2;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,6 @@ class Role extends Model
 
     public function users()
     {
-        return $this->hasMany('App\User', 'role_id', 'id');
+        return $this->hasMany('project2\User', 'role_id', 'id');
     }
 }
