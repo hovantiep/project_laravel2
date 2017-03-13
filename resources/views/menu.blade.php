@@ -10,7 +10,7 @@
     <title>CSS MenuMaker</title>
 </head>
 <body>
-Hello! Đây là menu đa cấp (very hard) chua sort
+Hello! Đây là menu đa cấp, tự động sinh (very hard)
 <div id='cssmenu'>
     {{ display_children(0,1) }}
 </div>

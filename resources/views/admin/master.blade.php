@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Trang quản trị</a>
+            <a class="navbar-brand" href="{{url('home')}}">Trang chủ</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -64,7 +64,7 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i></a>
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }}</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
                     </li>
@@ -93,16 +93,16 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Bảng điều khiển</a>
+                        <a href="{{url('admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Bảng điều khiển</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Danh mục<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Hiển thị danh mục</a>
+                                <a href="{{url('/admin/cate/index')}}">Hiển thị danh mục</a>
                             </li>
                             <li>
-                                <a href="#">Thêm danh mục</a>
+                                <a href="{{url('/admin/cate/add')}}">Thêm danh mục</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -111,10 +111,10 @@
                         <a href="#"><i class="fa fa-cube fa-fw"></i> Tin tức<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Danh sách tin</a>
+                                <a href="{{url('/admin/news/index')}}">Danh sách tin</a>
                             </li>
                             <li>
-                                <a href="#">Thêm tin tức</a>
+                                <a href="{{url('/admin/news/add')}}">Thêm tin tức</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -123,10 +123,10 @@
                         <a href="#"><i class="fa fa-users fa-fw"></i> Thành viên<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Danh sách thành viên</a>
+                                <a href="{{url('/admin/user/index')}}">Danh sách thành viên</a>
                             </li>
                             <li>
-                                <a href="#">Thêm thành viên</a>
+                                <a href="{{url('/admin/user/add')}}">Thêm thành viên</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
