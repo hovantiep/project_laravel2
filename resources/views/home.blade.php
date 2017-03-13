@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    Đây là trang Home
                 </div>
             </div>
         </div>

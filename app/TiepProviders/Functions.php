@@ -105,7 +105,7 @@ function show_cate($data, $parent = 0, $str = "")
         $name = $item->name;
         if ($item->parent_id == $parent) {
             echo '<tr class="odd gradeX" align="center">
-                     <td>' . $i++ . '</td>
+                     <td>' . ++$i . '</td> //tăng i rồi ghi
                      <td align="left">' . $str . $name . '</td>
                      <td class="center">
                         <i class="fa fa-trash-o fa-fw"></i>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Category;
+use project2\Category;
 
 class CategoryTable extends Seeder
 {
@@ -15,7 +15,8 @@ class CategoryTable extends Seeder
         if (App::environment() === 'production') {
             exit('I just stopped you getting fired. Love, Amo.');
         }
-        DB::table('categories')->truncate();
+//
+//        DB::table('categories')->truncate();
         for ($i = 1; $i <= 10; $i++) {
             Category::create([
                 'name' => "Danh mục $i",

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\News;
+use project2\News;
 
 class NewsTable extends Seeder
 {
@@ -15,7 +15,7 @@ class NewsTable extends Seeder
         if (App::environment() === 'production') {
             exit('I just stopped you getting fired. Love, Amo.');
         }
-        DB::table('news')->truncate();
+//        DB::table('news')->truncate();
         for ($i = 1; $i <= 10; $i++) {
             News::create([
                 'title' => "Tiêu đề $i",

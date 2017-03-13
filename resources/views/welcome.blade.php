@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     Your Application's Landing Page.
+                    Đây là trang wellcome!
                 </div>
             </div>
         </div>

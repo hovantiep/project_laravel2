@@ -16,14 +16,18 @@ Route::get('/', 'WelcomeController@index');
 Route::auth(); // RESTFUL Controller -> getChinhSua --> chinh-sua
 
 //Route::get('/home', 'HomeController@index');
+
+// Middleware de quan ly nguoi dung truy cap vao trang cu the
 Route::get('/home', [
     'middleware' => ['auth', 'roles'], // A 'roles' middleware must be specified
     'uses' => 'HomeController@index',
     'roles' => ['administrator', 'manager'] // Only an administrator, or a manager can access this route
 ]);
 
+// Đến trang tĩnh dựa vào slug (đây là các khác ngắn gọn để đến trang)
 Route::get('page/{slug}', ['as' => 'page', 'uses' => 'PageController@page']);
 
+// admin
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('dashboard', function () {
@@ -71,6 +75,7 @@ Route::group(['prefix' => 'admin'], function () {
         });
 });
 
+// Đến trang tạo menu Đa cấp
 Route::get('menu', function () {
     return view('menu');
 });

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Role;
+use project2\Role;
 
 class RoleTable extends Seeder
 {
@@ -15,7 +15,7 @@ class RoleTable extends Seeder
         if (App::environment() === 'production') {
             exit('I just stopped you getting fired. Love, Amo.');
         }
-        DB::table('roles')->truncate();
+//        DB::table('roles')->truncate();
         Role::create([
             'id' => 1,
             'name' => 'Root',
