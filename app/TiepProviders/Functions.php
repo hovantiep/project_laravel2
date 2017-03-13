@@ -97,15 +97,27 @@ function cate($data, $parent = 0, $str = "", $select = 0)
     }
 }
 
-function show_cate($data, $parent = 0, $str = "")
+/**
+ * @param $data
+ * @param int $parent bat dau tu 0
+ * @param string $str dinh dang
+ * @param bool $flagIsChild danh dau co la con khong de dinh dang
+ */
+function show_cate($data, $parent = 0, $str = "", $flagIsChild = false)
 {
     $i = 0;
     foreach ($data as $item) {
         $id = $item->id;
         $name = $item->name;
+
         if ($item->parent_id == $parent) {
+            if ($flagIsChild) {
+                $tab = '--- ';
+            }
+            else $tab = "";
+
             echo '<tr class="odd gradeX" align="center">
-                     <td>' . ++$i . '</td> //tăng i rồi ghi
+                     <td>' .$tab . ++$i . '</td> 
                      <td align="left">' . $str . $name . '</td>
                      <td class="center">
                         <i class="fa fa-trash-o fa-fw"></i>
@@ -117,7 +129,7 @@ function show_cate($data, $parent = 0, $str = "")
                         <a href="' . route('getCateEdit', $item->id) . '"> Sửa</a>
                      </td>
                  </tr>';
-            show_cate($data, $id, $str . "+ ");
+            show_cate($data, $id, $str . "--- ", true);
         }
 
     }
