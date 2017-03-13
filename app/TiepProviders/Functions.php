@@ -101,7 +101,7 @@ function cate($data, $parent = 0, $str = "", $select = 0)
  * @param $data
  * @param int $parent bat dau tu 0
  * @param string $str dinh dang
- * @param bool $flagIsChild danh dau co la con khong de dinh dang
+ * @param bool $flagIsChild danh dau co la con khong de dinh dang stt trong table
  */
 function show_cate($data, $parent = 0, $str = "", $flagIsChild = false)
 {
@@ -142,17 +142,17 @@ function show_cate($data, $parent = 0, $str = "", $flagIsChild = false)
  * @param int $parent_id
  * @return array
  */
-function ordered_menu($array, $parent_id = 0)
-{
-    $temp_array = array();
-    foreach ($array as $element) {
-        if ($element['parent_id'] == $parent_id) {
-            $element['sub'] = ordered_menu($array, $element['id']);
-            $temp_array[] = $element;
-        }
-    }
-    return $temp_array;
-}
+//function ordered_menu($array, $parent_id = 0)
+//{
+//    $temp_array = array();
+//    foreach ($array as $element) {
+//        if ($element['parent_id'] == $parent_id) {
+//            $element['sub'] = ordered_menu($array, $element['id']);
+//            $temp_array[] = $element;
+//        }
+//    }
+//    return $temp_array;
+//}
 
 /**
  * Hàm tạo danh sách menu đa cấp html
@@ -161,20 +161,20 @@ function ordered_menu($array, $parent_id = 0)
  * @param int $parent_id
  * @return string
  */
-function html_ordered_menu($array, $parent_id = 0)
-{
-    $menu_html = '<ul>';
-    foreach ($array as $element) {
-        if ($element['parent_id'] == $parent_id) {
-            $menu_html .= '<li><a href="/*' . $element['url'] . '*/">' . $element['name'] . '</a>';
-            $menu_html .= html_ordered_menu($array, $element['id']);
-            $menu_html .= '</li>';
-        }
-    }
-    $menu_html .= '</ul>';
-    $menu_html = str_replace('<ul></ul>', '', $menu_html);
-    return $menu_html;
-}
+//function html_ordered_menu($array, $parent_id = 0)
+//{
+//    $menu_html = '<ul>';
+//    foreach ($array as $element) {
+//        if ($element['parent_id'] == $parent_id) {
+//            $menu_html .= '<li><a href="/*' . $element['url'] . '*/">' . $element['name'] . '</a>';
+//            $menu_html .= html_ordered_menu($array, $element['id']);
+//            $menu_html .= '</li>';
+//        }
+//    }
+//    $menu_html .= '</ul>';
+//    $menu_html = str_replace('<ul></ul>', '', $menu_html);
+//    return $menu_html;
+//}
 
 /**
  * Convert stdClass (dạng kết truy vấn csdl) sang array
@@ -202,7 +202,7 @@ function cvf_convert_object_to_array($data)
  */
 function display_children($parent, $level)
 {
-    $sql = 'SELECT a.id, a.label, a.link, Deriv1.Count FROM `menus` a  LEFT OUTER JOIN (SELECT parent, COUNT(*) AS Count FROM `menus` GROUP BY parent) Deriv1 ON a.id = Deriv1.parent WHERE a.parent=?';
+    $sql = 'SELECT a.id, a.label, a.link, Deriv1.Count FROM `menus` a  LEFT OUTER JOIN (SELECT parent, COUNT(*) AS Count FROM `menus` GROUP BY parent) Deriv1 ON a.id = Deriv1.parent WHERE a.parent=? ORDER BY `sort`';
     $result = DB::select($sql, [$parent]);
     echo "<ul>";
     foreach ($result as $row) {
