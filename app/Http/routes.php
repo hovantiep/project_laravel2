@@ -71,6 +71,6 @@ Route::group(['prefix' => 'admin'], function () {
         });
 });
 
-Route::get('test', function () {
+Route::get('menu', function () {
     return view('menu');
 });
