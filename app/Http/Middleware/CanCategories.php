@@ -15,6 +15,7 @@ class CanCategories
      */
     public function handle($request, Closure $next, ...$action)
     {
+        // Lay ten action hien tai truy cap: "getNewsIndex"
         $action_name = Route::getCurrentRoute()->getName();
         if (in_array($action_name, $action)) {
             $canCate = json_decode($request->user()->can);

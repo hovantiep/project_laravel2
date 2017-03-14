@@ -15,11 +15,10 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        // Get the required roles from the route
+        // Get the required roles[] from the route
         $roles = $this->getRequiredRoleForRoute($request->route());
 
-        // Check if a role is required for the route, and
-        // if so, ensure that the user has that role.
+        // Kiem tra xem co quyen truy cap hay khong
         if ($request->user()->hasRole($roles) /*|| !$roles*/) {
             return $next($request);
         }
@@ -32,10 +31,14 @@ class CheckRole
         ], 401);
     }
 
+    /**
+     * Tra ve cac quyen truy cap trong route
+     * @param $route
+     * @return array cac quyen do admin cai dat o route
+     */
     private function getRequiredRoleForRoute($route)
     {
         $actions = $route->getAction();
-
         return isset($actions['roles']) ? $actions['roles'] : null;
     }
 }

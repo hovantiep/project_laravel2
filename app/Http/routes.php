@@ -17,7 +17,7 @@ Route::auth(); // RESTFUL Controller -> getChinhSua --> chinh-sua
 
 //Route::get('/home', 'HomeController@index');
 
-// Middleware de quan ly nguoi dung truy cap vao trang cu the
+// Middleware de quan ly nguoi dung co quyen truy cap vao trang cu the hay khong
 Route::get('/home', [
     'middleware' => ['auth', 'roles'], // A 'roles' middleware must be specified
     'uses' => 'HomeController@index',
