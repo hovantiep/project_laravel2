@@ -8,6 +8,7 @@ class CheckRole
 {
     /**
      * Handle an incoming request.
+     * Kiem tra quyen truy cap cua user nao do
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next

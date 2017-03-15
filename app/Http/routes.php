@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group([
         'prefix' => 'user',
         'middleware' => ['auth', 'roles'],
-        'roles' => ['administrator']
+        'roles' => ['administrator']// gan quyen cho user de su dung middleware "roles"
     ],
         function () {
             Route::get('index', ['as' => 'getUserIndex', 'uses' => 'UserController@getIndex']);
@@ -62,7 +62,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group([
         'prefix' => 'news',
-        'middleware' => ['auth', 'roles', 'canCate:postNewsAdd,postNewsEdit'],
+        'middleware' => ['auth', 'roles', 'actions:getNewsIndex,getNewsEdit,postNewsEdit'],
         'roles' => ['administrator', 'user']
     ],
         function () {
